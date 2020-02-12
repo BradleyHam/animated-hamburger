@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+:root{
+    --main-nav: #3D464F;
+}
+
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(220, 224, 226);
+    position: relative;
+    height:150vh;
+}
+
+.nav{
+    height: 70px;
+    background-color: rgb(61, 70, 79);
+    position: fixed;
+    top: 0;
+    left:0;
+    right: 0;
+}
+
+.icon{
+    position: absolute;
+    top:10px;
+    left: 10px;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    background-color: rgb(147, 93, 207);
+    border-radius: 2px;
+}
+
+.hamburger{
+    width: 40px;
+    height: 4px;
+    background: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    transition: .5s;
+    box-shadow: 0 2px 3px rgba(0,0,0,.2);
+    border-radius: 2px;
+
+}
+.hamburger:before,
+.hamburger:after{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    background: #fff;
+    transition: .5s;
+    box-shadow: 0 2px 3px rgba(0,0,0,.2);
+    border-radius: 2px;
+}
+
+.hamburger:before{
+    top: -12px;
+}
+.hamburger:after{
+    top: 12px;
+}
+
+.icon.active .hamburger{ 
+    background: rgba(0,0,0,0);
+    box-shadow: 0 2px 3px rgba(0,0,0,0)
+}
+
+.icon.active .hamburger:after{
+    top:0;
+    transform: rotate(-45deg);
+} 
+.icon.active .hamburger:before{
+    transform: rotate(45deg);
+    top: 0;
+} 
