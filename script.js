@@ -1,5 +1,7 @@
 let icon = document.querySelector('.icon');
+let body = document.querySelector("body");
 
 icon.addEventListener("click", () => {
-    icon.classList.toggle("active")
+    body.classList.toggle("active")
 })
+

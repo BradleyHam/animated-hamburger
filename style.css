@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,400,700,900&display=swap');
 :root{
     --main-nav: #3D464F;
+    --main-color: rgb(147, 93, 207);
 }
 
 
@@ -14,6 +16,7 @@ body{
     background-color: rgb(220, 224, 226);
     position: relative;
     height:150vh;
+    font-family: "Montserrat"
 }
 
 .nav{
@@ -32,8 +35,9 @@ body{
     cursor: pointer;
     height: 50px;
     width: 50px;
-    background-color: rgb(147, 93, 207);
+    background-color: var(--main-color);
     border-radius: 2px;
+    z-index: 100000;
 }
 
 .hamburger{
@@ -68,16 +72,72 @@ body{
     top: 12px;
 }
 
-.icon.active .hamburger{ 
+body.active .hamburger{ 
     background: rgba(0,0,0,0);
     box-shadow: 0 2px 3px rgba(0,0,0,0)
 }
 
-.icon.active .hamburger:after{
+body.active .hamburger:after{
     top:0;
     transform: rotate(-45deg);
 } 
-.icon.active .hamburger:before{
+body.active .hamburger:before{
     transform: rotate(45deg);
     top: 0;
 } 
+
+
+
+/*  -------------- Slide Down  */
+
+
+
+
+
+.slide-down{
+    height: 100vh;
+    background-color: var(--main-color);
+    z-index: 500;
+    position: relative;
+    transform: translateY(-100%);
+    transition: 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.active .slide-down{
+    transform: translateY(0);
+}
+
+.slide-down ul{
+    list-style-type: none;
+    color:white;
+    text-align: center;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: 1s ease-in .4s;
+}
+
+.slide-down li{
+    padding: 1em;
+    font-size: 1.2em;
+    font-weight: 100;
+    letter-spacing: .15em;
+    
+}
+.slide-down li:not(:last-child){
+    border-bottom: 1px solid rgba(255,255,255,.15);
+}
+
+body.active .slide-down ul{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media(min-width: 900px){
+    .slide-down li{
+        padding: 2em;
+        font-size: 400;
+    }
+}
